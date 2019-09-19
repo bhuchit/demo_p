@@ -1,0 +1,15 @@
+.ttt-ttt{
+    --background : #EC6C1F;
+    --color : #FFF;
+}
+.card01{
+    ion-card{
+        height: 250px;
+    }
+}
+.card02{
+    ion-button{
+        --background-activated: rgb(255, 174, 0);
+        height: 43px    ;
+    }
+}

@@ -1,0 +1,26 @@
+<ion-header >
+  <ion-toolbar class="ttt-ttt"  >
+    <ion-title>
+Presto Delivery
+</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-infinite-scroll>
+    <div *ngFor= "let order of orders" class="card01">
+    <ion-card >
+        <div class="card02">
+          <ion-button  expand = "block" (click) = "onAccept()">accept</ion-button>
+        </div>
+    </ion-card>
+    </div>
+
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="กำลังโหลดข้อมูล…">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+
+ 

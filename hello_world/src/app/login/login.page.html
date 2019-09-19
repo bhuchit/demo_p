@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>PRESTO DELIVERY(RIDER)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-item>
+  <ion-label position="stacked">Username<ion-text color="danger">*</ion-text></ion-label>
+  <ion-input required type="text" [(ngModel)] = "email"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">Password<ion-text color="danger">*</ion-text></ion-label>
+  <ion-input required type="password" [(ngModel)] = "password"></ion-input>
+</ion-item>
+
+<ion-content>
+    <ion-button expand="full" (click) = "onlogin()" >Login</ion-button>
+    <ion-button fill = "clear" expand="full" (click) = "onRegister()" >Register</ion-button>
+</ion-content>
