@@ -1,3 +1,2 @@
 # demo_p
-# Poochit Vongsrikhai
-# CPE#20
+# Poochit Vongsrikhai CPE#20
