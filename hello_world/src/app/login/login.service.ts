@@ -27,6 +27,6 @@ export class LoginService {
 
 export class User{
   Id:any = "0";
-  email:any = "bhu@gmail.com";
+  email:any = "beam";
   password:any  = "1234"
 }
