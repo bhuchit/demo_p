@@ -5,111 +5,33 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
 
+ 
+  <ion-card *ngFor="let item of Orderlist1">
+    
     <ion-item>
       <table>
-      <td  class="sc01" align = "left">
-         <div>
-          ชื่อลูกค้า : <ion-label>บีม</ion-label>
-         </div>
-      </td>
+        <tr>
+            <td  class="sc01" align = "left">
+      
+                <ion-label>ชื่อลูกค้า : {{item.cusName}}</ion-label>
+              
+           </td>
       <td class="sc02" align = "right">
-           <label>( 3.3 M ) </label> 
+           <label> ( {{item.transDistance}} กิโลเมตร ) </label> 
       </td>
+    </tr>
     </table>
     </ion-item>
-    <ion-item>สถานที่ : <ion-label>หอสุรนิเวศ 13</ion-label></ion-item>
+    <ion-item>สถานที่ : <ion-label>{{item.cusLocation}}</ion-label></ion-item>
     <ion-item>ร้านค้า : <ion-label>กระเพราปั๊มหลังมอ</ion-label></ion-item>
     <div class="buttonAl">
         <ion-button expand="full" >ยืนยัน</ion-button>
         
       </div>
   </ion-card>
+
   
-  <ion-card>
-      <ion-item>
-        <table>
-        <td  class="sc01" align = "left">
-           <div>
-            ชื่อลูกค้า : <ion-label>บีม</ion-label>
-           </div>
-        </td>
-        <td class="sc02" align = "right">
-             <label>( 3.3 M ) </label> 
-        </td>
-      </table>
-      </ion-item>
-      <ion-item>สถานที่ : <ion-label>หอสุรนิเวศ 13</ion-label></ion-item>
-      <ion-item>ร้านค้า : <ion-label>กระเพราปั๊มหลังมอ</ion-label></ion-item>
-      <div class="buttonAl">
-          <ion-button expand="full" >ยืนยัน</ion-button>
-          
-        </div>
-    </ion-card>
-
-    <ion-card>
-        <ion-item>
-          <table>
-          <td  class="sc01" align = "left">
-             <div>
-              ชื่อลูกค้า : <ion-label>บีม</ion-label>
-             </div>
-          </td>
-          <td class="sc02" align = "right">
-               <label>( 3.3 M ) </label> 
-          </td>
-        </table>
-        </ion-item>
-        <ion-item>สถานที่ : <ion-label>หอสุรนิเวศ 13</ion-label></ion-item>
-        <ion-item>ร้านค้า : <ion-label>กระเพราปั๊มหลังมอ</ion-label></ion-item>
-        <div class="buttonAl">
-            <ion-button expand="full" >ยืนยัน</ion-button>
-            
-          </div>
-      </ion-card>
-
-      <ion-card>
-          <ion-item>
-            <table>
-            <td  class="sc01" align = "left">
-               <div>
-                ชื่อลูกค้า : <ion-label>บีม</ion-label>
-               </div>
-            </td>
-            <td class="sc02" align = "right">
-                 <label>( 3.3 M ) </label> 
-            </td>
-          </table>
-          </ion-item>
-          <ion-item>สถานที่ : <ion-label>หอสุรนิเวศ 13</ion-label></ion-item>
-          <ion-item>ร้านค้า : <ion-label>กระเพราปั๊มหลังมอ</ion-label></ion-item>
-          <div class="buttonAl">
-              <ion-button expand="full" >ยืนยัน</ion-button>
-              
-            </div>
-        </ion-card>
-
-        <ion-card>
-            <ion-item>
-              <table>
-              <td  class="sc01" align = "left">
-                 <div>
-                  ชื่อลูกค้า : <ion-label>บีม</ion-label>
-                 </div>
-              </td>
-              <td class="sc02" align = "right">
-                   <label>( 3.3 M ) </label> 
-              </td>
-            </table>
-            </ion-item>
-            <ion-item>สถานที่ : <ion-label>หอสุรนิเวศ 13</ion-label></ion-item>
-            <ion-item>ร้านค้า : <ion-label>กระเพราปั๊มหลังมอ</ion-label></ion-item>
-            <div class="buttonAl">
-                <ion-button expand="full" >ยืนยัน</ion-button>
-                
-              </div>
-          </ion-card>
 </ion-content>
 
  
