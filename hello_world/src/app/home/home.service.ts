@@ -9,12 +9,8 @@ export class HomeService {
 
   constructor(private http : HttpClient) { }
 
-  
   baseURL = "https://damp-garden-65859.herokuapp.com";
   httpHeader = new HttpHeaders({'Content-Type':'application/json'})
-
-
-
 
   
   getOrder():Observable<any>{
