@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HistoryService } from './history.service';
 @Component({
   selector: 'app-history',
   templateUrl: './history.page.html',
@@ -7,10 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryPage implements OnInit {
 
-  constructor() { }
+  OrderList = [];
+
+  Rider;
+
+
+  constructor(private historyService : HistoryService,
+   
+   ) { }
 
   ngOnInit() {
     
+    this.Rider = {id:'joke',name:'ประเสริฐ',income:1700}
+
+    this.historyService.getByRiderId(this.Rider.id).subscribe(
+      data => {
+        for(var i = 0 ; i < data.length ; i ++){
+       
+          this.OrderList.push(data[i]);
+        }
+      }
+
+  );
+
   }
 
 }

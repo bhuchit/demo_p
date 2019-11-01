@@ -14,10 +14,19 @@ export class HistoryService {
     // })
 
   // };
-  constructor(
-    
-    // private http: HttpClient
-    ) { }
+  constructor(private http : HttpClient) { }
+
+  baseURL = "http://localhost:9000";
+  httpHeader = new HttpHeaders({'Content-Type':'application/json'})
+
+  
+  getByRiderId(Rider_id):Observable<any>{
+
+    console.log("hi4444");
+
+    return this.http.get(this.baseURL+'/OrderByRiderId/'+Rider_id,{headers:this.httpHeader});
+
+  }
 }
 
 export class history{
