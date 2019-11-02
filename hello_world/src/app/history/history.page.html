@@ -27,31 +27,39 @@
    
   </div>
 
-  <ion-card *ngFor="let item of OrderList">
-    
-      <ion-item>
+  
+  <div *ngFor="let item of OrderList ; index as i">
+
+        <ion-card *ngIf=" Session[i] == 0" >
+      
+      <ion-item >
         <table>
           <tr>
               <td  class="sc01" align = "left">
         
-                  <ion-label>ชื่อลูกค้า : {{item.cusName}} </ion-label>
+                  <ion-label >ชื่อลูกค้า : {{item[2]}} </ion-label>
                 
              </td>
         <td class="sc02" align = "right">
              <ion-label>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-                ( {{item.transDistance}} กิโลเมตร ) </ion-label> 
+                 {{item[7]}} กิโลเมตร  </ion-label> 
         </td>
       </tr>
       </table>
       </ion-item>
-      <ion-item>สถานที่ : <ion-label>{{item.cusLocation}}</ion-label></ion-item>
-      <ion-item>ร้านค้า : <ion-label>กระเพราปั๊มหลังมอ</ion-label></ion-item>
+      <ion-item>เวลาที่ลูกค้าสั่งออร์เดอร์ : &nbsp;<ion-label>{{item[3]}}</ion-label></ion-item>
+      <ion-item>ส่งเสร็จสิ้นเมื่อ : &nbsp;<ion-label>{{item[4]}}</ion-label></ion-item>
+      <ion-item>สถานที่ : <ion-label>{{item[1]}}</ion-label></ion-item>
+      <ion-item>ร้านค้า : <ion-label>{{item[13]}}</ion-label></ion-item>
+      <ion-item *ngIf=" item[14] != null" >ร้านค้า : <ion-label>{{item[14]}}</ion-label></ion-item>
+      <ion-item *ngIf=" item[15] != null" >ร้านค้า : <ion-label>{{item[15]}}</ion-label></ion-item>
+      <ion-item *ngIf=" Session[i] == 555" >{{i+1}}</ion-item>
       <div class="buttonAl">
           <ion-button expand="full" >ดูข้อมูล</ion-button>
           
         </div>
     </ion-card>
-
+  </div>
   
        
 </ion-content>
@@ -59,3 +67,5 @@
             <ion-button expand="full" target="_parent">ยืนยัน</ion-button>
             
           </div>
+
+        
