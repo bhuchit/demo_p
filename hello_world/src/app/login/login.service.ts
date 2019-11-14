@@ -1,28 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient,  HttpHeaders } from '@angular/common/http';
+import { LoginPage } from './login.page';
+import {Router} from '@angular/router';
+import { NavController, AlertController } from '@ionic/angular';
+
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
-  // public API: string = "http://localhost:8080";
-  // httpOptions = {
-    // headers: new HttpHeaders({
-      // 'Content-Type':  'application/json'
-    // })
+export class LoginRider {
+  
+  
 
-  // };
   constructor(
-    
-    // private http: HttpClient
-    ) { }
+    private http : HttpClient,  
+    private nav : NavController,
+    ) { 
+ 
+  }
 
-  // findUser(email:any, pass:any):Observable<any>{
-  //   return this.http.get(this.API + '/user/' + email + pass);
-  // }
-  // getUser():Observable<any>{
-  //   return this.http.get('//localhost:8080/user');
-  // }
+ 
+
+  baseURL = "http://localhost:9000";
+  httpHeader = new HttpHeaders({'Content-Type':'application/json'})
+  
+  onLogininput(users):Observable<any>{
+    console.log("Login");
+    return this.http.post(this.baseURL+'/Rider/login',users,{headers:this.httpHeader , responseType:'text'}); 
+
+    
+  }
+
+
+
+  getLogin(id,password):Observable<any>{
+    return this.http.get(this.baseURL+'/Menu/restaurant/'+id,{headers:this.httpHeader});
+  }
 }
 
 export class User{

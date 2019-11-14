@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoryService } from './history.service';
+
 @Component({
   selector: 'app-history',
   templateUrl: './history.page.html',
@@ -10,10 +11,12 @@ export class HistoryPage implements OnInit {
   OrderList = [];
 
   Rider;
+
   Session = [];
   OrderIdTemp ;
   DataTemp;
   
+  sessionRider ;
   
  x=0 ;
  n=0;
@@ -24,13 +27,39 @@ export class HistoryPage implements OnInit {
 
   ngOnInit() {
     
-    this.Rider = { //นี่เป็นข้อมูลสมมุติของ rider ที่ Loginอยู่  ที่จริงแล้วจะต้องเชื่อมกับระบบล็อกอิน แล้วเอาข้อมูลที่ล็อกอินมาใช้
-      id:'joke',
-    name:'ประเสริฐ',
-    income:1700
-  } //
 
-    this.historyService.getByRiderId(this.Rider.id).subscribe(
+  this.Rider={
+    id:"",
+    name:"",
+    username: "",
+    password: "",
+    income: ""
+  };
+
+
+  this.sessionRider  = localStorage.getItem('rider_id');
+
+  this.historyService.getRider(this.sessionRider).subscribe(
+    data => {
+      console.log(data);
+      
+        this.Rider.id = data.id ;
+        this.Rider.name = data.name ;
+        this.Rider.username = data.username ;
+        this.Rider.password = data.password ;
+        this.Rider.income = data.income ;
+         
+
+         console.log(this.Rider);
+    }
+
+    
+    
+  );
+
+
+
+    this.historyService.getByRiderId(this.sessionRider ).subscribe(
       data => {
         for(var i = 0 ; i < data.length ; i ++){
 

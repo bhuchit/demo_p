@@ -27,6 +27,17 @@ export class HistoryService {
     return this.http.get(this.baseURL+'/OrderByRiderId/'+Rider_id,{headers:this.httpHeader});
 
   }
+
+
+  
+  getRider(Rider_id):Observable<any>{
+
+    console.log("hi999");
+
+    return this.http.get(this.baseURL+'/Rider/'+Rider_id,{headers:this.httpHeader});
+
+  }
+
 }
 
 export class history{

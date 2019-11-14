@@ -1,26 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import { User, LoginService } from './login.service';
-import { Subscription } from 'rxjs';
+import { User, LoginRider } from './login.service';
+import { Subscription, from } from 'rxjs';
 import {Router} from '@angular/router';
+import { NavParams,NavController } from '@ionic/angular';
+
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
+
+
+
 export class LoginPage implements OnInit {
   // sub: Subscription;
-  users:User = new User();
+  username:"";
   email:any;
-  password:string;
+  password:"";
+  http: any;
 
+  users={
+    username:"",
+    password:""
+  }
+  data1;
+
+ 
+
+  
   constructor(
     // private find: LoginService,
     // private user: LoginService,
+  
     private rout: Router,
+
+    private loginRider: LoginRider,
+    private nav : NavController,
   ) { }
 
   ngOnInit() {
+    
+ 
+    
+
     // this.user.getUser().subscribe(user=>{
     //   this.users = user;
     //   console.table(this.users);
@@ -28,24 +53,30 @@ export class LoginPage implements OnInit {
     // console.log(this.users);
   }
   
-  onlogin() {
-    // this.sub = this.find.findUser(this.email,this.pass).subscribe((find)=>{
-    //     this.users = find;
-    // })
+  onLogin() {
+    
     console.log(this.users);
-    if(this.email == this.users.email && this.password == this.users.password){
-      console.log("XXXX: "+this.email);
-      console.log("XXXX: "+this.password);
-      console.log("Successfully logged in!");
-      this.rout.navigate(['home'])
-    }
-    else if(this.email != this.users.email || this.password != this.users.password){
-      console.log("Error");
-      alert("Email or Passsword not found");
-    }
+    
+    this.loginRider.onLogininput(this.users).subscribe(
+      data => {
+        console.log("login!!");
+        console.log(data);
+        
+
+         if( data == this.users.username ){
+                  console.log("done!!");
+                  localStorage.setItem('rider_id',this.users.username);
+                 this.nav.navigateForward('/home') ;
+         }else
+                  alert("รหัสผ่านหรืออีเมลผิด")
+      }
+      
+    );
+  
   }
 
   
+
   onRegister(){
 
   }
