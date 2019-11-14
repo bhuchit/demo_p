@@ -25,7 +25,15 @@ export class HomePage {
   orders = ORDER_DATA;
 
  
-  Orderlist1 = [];
+  OrderList1 = [];
+
+  Session = [];
+  OrderIdTemp ;
+  DataTemp;
+  
+  
+ x=0 ;
+ n=0;
 
   constructor(private rout: Router,private homeService : HomeService ) {
 
@@ -46,11 +54,42 @@ export class HomePage {
         //this.market = JSON.stringify(data[0].id);
         // data[value of id] . parameter of oject
         for(var i = 0; i < data.length; i++){
-          this.Orderlist1.push(data[i]);
+          this.OrderList1.push(data[i]);
+          this.Session[i] = 0 ;
           
           console.log((data[i])); //here you'll get sendernewcall value for all entry
-          console.log(this.Orderlist1);
+          
         }
+
+        for(let D of this.OrderList1 ){
+
+
+          if(this.x==0)
+          {
+            this.OrderIdTemp  =  D[0];
+            this.DataTemp = D;
+          }
+          if( D[0] == this.OrderIdTemp && this.x != 0){
+            this.n+1;
+            this.Session[this.x] =  1;
+            this.OrderIdTemp = D[0];
+            
+            this.DataTemp.push(D[13] );
+            this.OrderList1[this.x-this.n] = this.DataTemp;
+            
+          }else if(D[0] != this.OrderIdTemp && this.x != 0){
+            this.n = 0;
+            this.Session[this.x] =  0;
+            this.OrderIdTemp = D[0];
+            this.DataTemp = D;
+            this.OrderList1[this.x] = this.DataTemp;
+            
+          }
+  
+          this.x++;
+        }
+
+
       }
 
     );

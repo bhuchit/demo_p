@@ -17,7 +17,7 @@ export class HomeService {
 
     console.log("hi55555");
 
-    return this.http.get(this.baseURL+'/Order',{headers:this.httpHeader});
+    return this.http.get(this.baseURL+'/OrderByStatus',{headers:this.httpHeader});
 
   }
 
