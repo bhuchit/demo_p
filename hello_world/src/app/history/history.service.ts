@@ -7,6 +7,7 @@ import { User } from '../login/login.service';
   providedIn: 'root'
 })
 export class HistoryService {
+<<<<<<< HEAD
   public API: string = "http://localhost:9000";
   httpOptions = {
     headers: new HttpHeaders({
@@ -21,6 +22,27 @@ export class HistoryService {
   
   getOnOption():Observable<any>{
     return this.http.get(this.API+'/OnOption ',{headers:this.httpOptions.headers});
+=======
+  // public API: string = "http://localhost:8080";
+  // httpOptions = {
+    // headers: new HttpHeaders({
+      // 'Content-Type':  'application/json'
+    // })
+
+  // };
+  constructor(private http : HttpClient) { }
+
+  baseURL = "http://localhost:9000";
+  httpHeader = new HttpHeaders({'Content-Type':'application/json'})
+
+  
+  getByRiderId(Rider_id):Observable<any>{
+
+    console.log("hi4444");
+
+    return this.http.get(this.baseURL+'/OrderByRiderId/'+Rider_id,{headers:this.httpHeader});
+
+>>>>>>> 68bda24396e7d1a05715c93fe2b3cc28b0305ec8
   }
 }
 

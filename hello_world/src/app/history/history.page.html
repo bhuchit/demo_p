@@ -1,12 +1,13 @@
 <ion-header >
   <ion-toolbar class="ttt-ttt"  >
     <ion-title>
-      Presto Delivery
+        <FONT SIZE="5"> ประวัติการทำงาน</FONT> 
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<<<<<<< HEAD
   <div *ngFor= "let onOption of onOptions" class="card01">
   <ion-card>
     <ion-item> ชื่อร้านค้า : {{onOption.option.restaurant.name}}<ion-label></ion-label><ion-label></ion-label>KM.</ion-item>
@@ -21,3 +22,57 @@
     </div>
   </ion-card>
   </div>
+=======
+  <div class="scdiv">
+    <FONT SIZE="5">  
+    <table>
+   
+      
+      <tr >       
+        <td class="scb01">  <ion-label>ชื่อจริง :  {{Rider.name}}</ion-label></td> 
+        
+      </tr>
+      <tr>
+        
+        <td  class="scb01"><ion-label>ชื่อเล่น :  {{Rider.id}}</ion-label>  </td>
+      </tr>
+      </table>
+      <td class="scb03">รายได้ทั้งสัปดาห์ : </td>
+      <ion-label>&nbsp; &nbsp; {{Rider.income}}</ion-label>
+      </FONT> 
+   
+  </div>
+
+  <ion-card *ngFor="let item of OrderList">
+    
+      <ion-item>
+        <table>
+          <tr>
+              <td  class="sc01" align = "left">
+        
+                  <ion-label>ชื่อลูกค้า : {{item.cusName}} </ion-label>
+                
+             </td>
+        <td class="sc02" align = "right">
+             <ion-label>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+                ( {{item.transDistance}} กิโลเมตร ) </ion-label> 
+        </td>
+      </tr>
+      </table>
+      </ion-item>
+      <ion-item>สถานที่ : <ion-label>{{item.cusLocation}}</ion-label></ion-item>
+      <ion-item>ร้านค้า : <ion-label>กระเพราปั๊มหลังมอ</ion-label></ion-item>
+      <div class="buttonAl">
+          <ion-button expand="full" >ดูข้อมูล</ion-button>
+          
+        </div>
+    </ion-card>
+
+  
+       
+</ion-content>
+ <div class="buttonAl">
+            <ion-button expand="full" target="_parent">ยืนยัน</ion-button>
+            
+          </div>
+>>>>>>> 68bda24396e7d1a05715c93fe2b3cc28b0305ec8

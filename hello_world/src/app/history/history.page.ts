@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoryService } from './history.service';
+<<<<<<< HEAD
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../home/home.service';
 
+=======
+>>>>>>> 68bda24396e7d1a05715c93fe2b3cc28b0305ec8
 @Component({
   selector: 'app-history',
   templateUrl: './history.page.html',
   styleUrls: ['./history.page.scss'],
 })
 export class HistoryPage implements OnInit {
+<<<<<<< HEAD
   id: any
   onOptions: []
   status: String = 'รอดำเนินการ'
@@ -40,6 +44,32 @@ export class HistoryPage implements OnInit {
     else
       this.color = 'danger';
     console.log(id);
+=======
+
+  OrderList = [];
+
+  Rider;
+
+
+  constructor(private historyService : HistoryService,
+   
+   ) { }
+
+  ngOnInit() {
+    
+    this.Rider = {id:'joke',name:'ประเสริฐ',income:1700}
+
+    this.historyService.getByRiderId(this.Rider.id).subscribe(
+      data => {
+        for(var i = 0 ; i < data.length ; i ++){
+       
+          this.OrderList.push(data[i]);
+        }
+      }
+
+  );
+
+>>>>>>> 68bda24396e7d1a05715c93fe2b3cc28b0305ec8
   }
 
 }

@@ -44,6 +44,8 @@ export class LoginPage implements OnInit {
       alert("Email or Passsword not found");
     }
   }
+
+  
   onRegister(){
 
   }
