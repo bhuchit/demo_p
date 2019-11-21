@@ -1,29 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { Order } from '../history/history.service';
+import { Order, HistoryService } from '../history/history.service';
+import { HomeService } from './home.service';
+import { HttpClient } from 'selenium-webdriver/http';
 
-
-const ORDER_DATA: Order[] = [
-  {oid: 1, oName:"A"},
-  {oid: 2, oName:"B"},
-  {oid: 3, oName:"C"},
-  {oid: 4, oName:"D"},
-  {oid: 5, oName:"E"},
-  {oid: 6, oName:"F"},
-];
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  orders = ORDER_DATA;
-
-  constructor(private rout: Router,
+export class HomePage implements OnInit{
+  orders: Array<any>;
+  x: any;
+  status: String = "กำลังดำเนินการ";
+  constructor(
+    private rout: Router,
+    // private httpClient: HttpClient,
+    // private orderService: HistoryService ,
+    private homeService: HomeService
     ) {}
 
-  onAccept(){
-      this.rout.navigate(['${this.orders.oid}/history'])
+  ngOnInit() {
+    this.homeService.getOrders().subscribe(order=>{
+      this.orders = order;
+      console.table(order);
+    });
+  
+  }
+  onAccept(id:any){
+    console.log(id);
+    this.homeService.updateStatusOrder(id,this.status).subscribe(update =>{
+      console.table(update);
+    })
+    this.rout.navigate(['/history',{id}]);
+    
+      
   }
 }

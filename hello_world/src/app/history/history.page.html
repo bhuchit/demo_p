@@ -7,5 +7,17 @@
 </ion-header>
 
 <ion-content>
-
-</ion-content>
+  <div *ngFor= "let onOption of onOptions" class="card01">
+  <ion-card>
+    <ion-item> ชื่อร้านค้า : {{onOption.option.restaurant.name}}<ion-label></ion-label><ion-label></ion-label>KM.</ion-item>
+    <ion-item>Menu : {{onOption.menu.maincourse.name}}<ion-label></ion-label></ion-item>
+    <ion-item>AmountMenu : {{onOption.amountMenu}}<ion-label></ion-label></ion-item>
+    <ion-item>priceMenu : {{onOption.menu.price}}<ion-label></ion-label></ion-item>
+    <ion-item>Option : {{onOption.option.name}}<ion-label></ion-label></ion-item>
+    <ion-item>AmountOption : {{onOption.amountOption}}<ion-label></ion-label></ion-item>
+    
+    <div class="">
+      <ion-button expand="full" (click) = "changeStatus(onOption.id)" color="{{color}}">{{status}}</ion-button> 
+    </div>
+  </ion-card>
+  </div>

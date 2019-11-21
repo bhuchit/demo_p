@@ -7,28 +7,44 @@ import { User } from '../login/login.service';
   providedIn: 'root'
 })
 export class HistoryService {
-  // public API: string = "http://localhost:8080";
-  // httpOptions = {
-    // headers: new HttpHeaders({
-      // 'Content-Type':  'application/json'
-    // })
-
-  // };
+  public API: string = "http://localhost:9000";
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+  };
   constructor(
     
-    // private http: HttpClient
-    ) { }
+    private http: HttpClient
+  ) { }
+
+  
+  getOnOption():Observable<any>{
+    return this.http.get(this.API+'/OnOption ',{headers:this.httpOptions.headers});
+  }
 }
 
 export class history{
   hId: any;
   dateTime: any;
   user: User;
-  order: Order;//Order class
+  order: Order;
   
 }
 export class Order{
-  oid: any;
-  oName: String;
-
+  oId: any;
+  distance: any;
+  location: String;
+  customer: Customer;
+  restaurant: Restaurants
+  status: String;
+  
+}
+export class Customer{
+  cId: any;
+  cName: String; 
+}
+export class Restaurants{
+  restId: any;
+  resName: String;
 }
