@@ -1,16 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
-import { Order } from '../history/history.service';
-
-
-const ORDER_DATA: Order[] = [
-  {oid: 1, oName:"A"},
-  {oid: 2, oName:"B"},
-  {oid: 3, oName:"C"},
-  {oid: 4, oName:"D"},
-  {oid: 5, oName:"E"},
-  {oid: 6, oName:"F"},
-];
+import { Subscription } from 'rxjs';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -18,12 +9,20 @@ const ORDER_DATA: Order[] = [
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  orders = ORDER_DATA;
+  orders: []
+  constructor(
+    private rout: Router,
+    private homeService: HomeService,
+    ) { }
 
-  constructor(private rout: Router,
-    ) {}
+  ngOnInit() {
+    // this.homeService.getOrders().subscribe(order=>{
+    //   this.orders = order;
+    //   console.table(order);
+    // });
+  }
 
   onAccept(){
-      this.rout.navigate(['${this.orders.oid}/history'])
+      // this.rout.navigate(['${this.orders.oid}/history'])
   }
 }

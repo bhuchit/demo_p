@@ -19,16 +19,3 @@ export class HistoryService {
     // private http: HttpClient
     ) { }
 }
-
-export class history{
-  hId: any;
-  dateTime: any;
-  user: User;
-  order: Order;//Order class
-  
-}
-export class Order{
-  oid: any;
-  oName: String;
-
-}

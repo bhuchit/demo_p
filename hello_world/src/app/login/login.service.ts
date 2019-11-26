@@ -5,28 +5,25 @@ import { HttpClient,  HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoginService {
-  // public API: string = "http://localhost:8080";
-  // httpOptions = {
-    // headers: new HttpHeaders({
-      // 'Content-Type':  'application/json'
-    // })
-
-  // };
+  public API: string = "http://localhost:9000";
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+  };
   constructor(
     
-    // private http: HttpClient
+    private http: HttpClient
     ) { }
 
-  // findUser(email:any, pass:any):Observable<any>{
-  //   return this.http.get(this.API + '/user/' + email + pass);
-  // }
-  // getUser():Observable<any>{
-  //   return this.http.get('//localhost:8080/user');
-  // }
+
+  getUser():Observable<any>{
+    return this.http.get('//localhost:8080/user');
+  }
 }
 
 export class User{
   Id:any = "0";
-  email:any = "bhu@gmail.com";
+  email:any = "bhu";
   password:any  = "1234"
 }
